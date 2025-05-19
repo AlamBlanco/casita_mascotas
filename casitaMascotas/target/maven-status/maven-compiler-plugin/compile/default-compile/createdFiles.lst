@@ -1,0 +1,6 @@
+animales\casitaMascotas\controlador\Controlador.class
+animales\casitaMascotas\modelo\Animal.class
+animales\casitaMascotas\CasitaMascotasApplication.class
+animales\casitaMascotas\repositorio\IRepositorio.class
+animales\casitaMascotas\servicio\IServicio.class
+animales\casitaMascotas\servicio\Servicio.class
