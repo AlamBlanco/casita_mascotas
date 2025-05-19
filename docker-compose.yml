@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  casita_mascotas:
+    build: casitaMascotas
+    mem_limit: 512m
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:mysql://contenedor_db:3306/la_casita?createDatabaseIfNotExist=true&serverTimezone=UTC
+      DB_USER: root
+      DB_PASS: root
+    restart: always
+    depends_on:
+      contenedor_db:
+        condition: service_healthy
+  contenedor_db:
+    image: mysql:8.0
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: ""
+      MYSQL_DATABASE: la_casita
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 10
