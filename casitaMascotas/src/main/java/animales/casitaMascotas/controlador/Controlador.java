@@ -13,6 +13,11 @@ public class Controlador {
     @Autowired
     private IServicio mascotaServi;
 
+    @GetMapping("/")
+    public String inicio() {
+        return "API funcionando";
+    }
+
     @PostMapping("/crear")
     public String crearPersona(@RequestBody Animal ani){
         mascotaServi.saveAnimal(ani);
