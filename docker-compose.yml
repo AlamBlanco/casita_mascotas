@@ -2,7 +2,7 @@ version: '3'
 
 services:
   casita_mascotas:
-    build: 
+    build: .
     mem_limit: 512m
     ports:
       - "8080:8080"
